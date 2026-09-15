@@ -7,47 +7,42 @@
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
 body { font-family: 'Vazirmatn', Tahoma, sans-serif; background: radial-gradient(circle at 15% 20%,rgba(0,229,255,.15),transparent 25%), radial-gradient(circle at 85% 20%,rgba(255,0,128,.15),transparent 25%), radial-gradient(circle at 50% 90%,rgba(130,50,255,.15),transparent 30%), #050711; color:#fff; min-height:100vh; overflow-x:hidden; }
 :root { --cyan:#00e5ff; --blue:#287bff; --purple:#9b4dff; --pink:#ff2ea6; --green:#00f5a0; --shadow:0 15px 45px rgba(0,0,0,.5); }
 .hidden { display:none !important; }
 button { font-family:inherit; cursor:pointer; }
 a { color:inherit; text-decoration:none; }
 .background-orbs { position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:-1; }
-.orb { position:absolute; border-radius:50%; filter:blur(80px); opacity:.3; animation:floatOrb 12s infinite alternate ease-in-out; }
+.orb { position:absolute; border-radius:50%; filter:blur(80px); opacity:.3; }
 .orb.one { width:300px; height:300px; background:var(--cyan); top:-5%; left:-5%; }
-.orb.two { width:350px; height:350px; background:var(--pink); right:-5%; top:30%; animation-delay:3s; }
-.orb.three { width:320px; height:320px; background:var(--purple); left:35%; bottom:-10%; animation-delay:6s; }
-@keyframes floatOrb { to{transform:translate(60px,-50px) scale(1.1);} }
+.orb.two { width:350px; height:350px; background:var(--pink); right:-5%; top:30%; }
+.orb.three { width:320px; height:320px; background:var(--purple); left:35%; bottom:-10%; }
 
 /* LOGIN */
 #loginPage { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px; }
-.login-box { width:100%; max-width:450px; padding:45px 35px; border-radius:30px; background: linear-gradient(145deg, rgba(17,25,50,.95), rgba(5,8,20,.98)); border:1px solid rgba(0,229,255,.4); box-shadow: 0 0 80px rgba(0,229,255,.15), var(--shadow); backdrop-filter:blur(25px); }
-.login-logo { width:90px; height:90px; margin:0 auto 25px; border-radius:25px; display:flex; align-items:center; justify-content:center; font-size:45px; background: linear-gradient(135deg, var(--cyan), var(--purple), var(--pink)); box-shadow: 0 0 40px rgba(0,229,255,.4); }
+.login-box { width:100%; max-width:450px; padding:45px 35px; border-radius:30px; background: linear-gradient(145deg, rgba(17,25,50,.95), rgba(5,8,20,.98)); border:1px solid rgba(0,229,255,.4); box-shadow: 0 0 80px rgba(0,229,255,.15); }
+.login-logo { width:90px; height:90px; margin:0 auto 25px; border-radius:25px; display:flex; align-items:center; justify-content:center; font-size:45px; background: linear-gradient(135deg, var(--cyan), var(--purple), var(--pink)); }
 .login-title { text-align:center; }
 .login-title h1 { font-size:32px; margin-bottom:10px; font-weight:900; background: linear-gradient(90deg, #fff, var(--cyan), var(--pink)); -webkit-background-clip:text; color:transparent; }
 .login-title p { color:#9ba6c5; margin-bottom:35px; }
 .input-box { margin-bottom:20px; }
 .input-box label { display:block; margin-bottom:8px; color:#d8dded; font-weight:700; font-size:14px; }
-.input-box input { width:100%; padding:16px; border-radius:15px; border:1px solid rgba(255,255,255,.1); background:#050814; color:white; outline:none; font-size:15px; font-family:inherit; }
-.input-box input:focus { border-color:var(--cyan); box-shadow: 0 0 25px rgba(0,229,255,.25); }
-.login-button { width:100%; border:none; padding:16px; border-radius:15px; color:white; font-size:17px; font-weight:900; background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink)); transition:.3s; }
-.login-button:hover { transform:translateY(-4px); }
+.input-box input { width:100%; padding:16px; border-radius:15px; border:1px solid rgba(255,255,255,.1); background:#050814; color:white; outline:none; font-size:15px; }
+.input-box input:focus { border-color:var(--cyan); }
+.login-button { width:100%; border:none; padding:16px; border-radius:15px; color:white; font-size:17px; font-weight:900; background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink)); }
 #error { min-height:25px; text-align:center; color:#ff526a; margin-top:15px; font-weight:700; }
 
 /* SUCCESS */
 #successPage { min-height:100vh; display:flex; align-items:center; justify-content:center; }
 .success-container { text-align:center; }
-.success-icon { width:130px; height:130px; margin:auto auto 30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:65px; border:4px solid var(--green); color:var(--green); box-shadow: 0 0 60px rgba(0,245,160,.5); }
+.success-icon { width:130px; height:130px; margin:auto auto 30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:65px; border:4px solid var(--green); color:var(--green); }
 .success-container h1 { font-size:45px; font-weight:900; background: linear-gradient(90deg, var(--green), var(--cyan), var(--purple)); -webkit-background-clip:text; color:transparent; }
-.success-container p { color:#9ba6c5; margin-top:15px; }
 
 /* HEADER */
 .site-header { position:sticky; top:0; z-index:999; background: rgba(4,7,18,.85); border-bottom: 1px solid rgba(255,255,255,.08); backdrop-filter:blur(20px); }
 .header-inner { width:92%; max-width:1250px; margin:auto; min-height:75px; display:flex; justify-content:space-between; align-items:center; }
 .logo { font-size:22px; font-weight:900; background: linear-gradient(90deg, var(--cyan), var(--pink)); -webkit-background-clip:text; color:transparent; }
-.header-btn { border:1px solid rgba(255,255,255,.1); background:#0c1124; color:white; padding:10px 20px; border-radius:12px; font-weight:700; transition:.3s; }
-.header-btn:hover { border-color:var(--cyan); }
+.header-btn { border:1px solid rgba(255,255,255,.1); background:#0c1124; color:white; padding:10px 20px; border-radius:12px; font-weight:700; }
 
 /* HOME */
 .hero { text-align:center; padding:80px 20px 50px; }
@@ -55,11 +50,10 @@ a { color:inherit; text-decoration:none; }
 .hero h1 { font-size:55px; font-weight:900; margin-bottom:15px; background: linear-gradient(90deg, #fff, var(--cyan), var(--purple), var(--pink)); -webkit-background-clip:text; color:transparent; }
 .hero p { color:#9ba6c5; font-size:18px; }
 .home-grid { width:92%; max-width:1100px; margin:auto; display:grid; grid-template-columns: repeat(4,1fr); gap:25px; }
-.home-card { min-height:260px; padding:20px; border-radius:25px; background: linear-gradient(145deg, rgba(15,22,45,.95), rgba(5,8,20,.95)); border:1px solid rgba(255,255,255,.12); transition:.4s; box-shadow:var(--shadow); cursor:pointer; }
-.home-card:hover { transform: translateY(-15px) scale(1.03); border-color: rgba(0,229,255,.8); }
-.card-image { height:130px; border-radius:18px; margin-bottom:20px; overflow:hidden; }
-.card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-.home-card:hover .card-image img { transform: scale(1.1); }
+.home-card { min-height:260px; padding:20px; border-radius:25px; background: linear-gradient(145deg, rgba(15,22,45,.95), rgba(5,8,20,.95)); border:1px solid rgba(255,255,255,.12); cursor:pointer; transition:.3s; }
+.home-card:hover { transform: translateY(-10px); border-color: rgba(0,229,255,.8); }
+.card-image { height:130px; border-radius:18px; margin-bottom:20px; overflow:hidden; background: linear-gradient(135deg, #1e293b, #7c3aed); }
+.card-image img { width: 100%; height: 100%; object-fit: cover; }
 .home-card h2 { margin-bottom:10px; font-weight:900; }
 .home-card p { color:#8e99b8; line-height:1.8; font-size:14px; }
 
@@ -71,11 +65,10 @@ a { color:inherit; text-decoration:none; }
 
 /* CATEGORY */
 .category-grid { width:92%; max-width:1100px; margin:auto; display:grid; grid-template-columns: repeat(5,1fr); gap:18px; }
-.category-card { padding:17px; border-radius:20px; background: rgba(10,15,32,.9); border: 1px solid rgba(255,255,255,.09); transition:.35s; text-align:center; cursor:pointer; }
-.category-card:hover { transform: translateY(-10px); border-color:var(--cyan); box-shadow: 0 20px 40px rgba(0,229,255,.15); }
-.category-photo { height:130px; border-radius:15px; margin-bottom:15px; overflow: hidden; }
-.category-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-.category-card:hover .category-photo img { transform: scale(1.15); }
+.category-card { padding:17px; border-radius:20px; background: rgba(10,15,32,.9); border: 1px solid rgba(255,255,255,.09); text-align:center; cursor:pointer; transition:.3s; }
+.category-card:hover { transform: translateY(-10px); border-color:var(--cyan); }
+.category-photo { height:130px; border-radius:15px; margin-bottom:15px; overflow: hidden; background: linear-gradient(135deg, #1e293b, #0e7490); }
+.category-photo img { width: 100%; height: 100%; object-fit: cover; }
 .category-card h3 { margin-bottom:8px; font-size:16px; font-weight:900; }
 .category-card p { color:#7885a7; font-size:13px; }
 
@@ -84,11 +77,10 @@ a { color:inherit; text-decoration:none; }
 .product-header { padding:25px; border-radius:22px; background: linear-gradient(90deg, rgba(0,229,255,.1), rgba(255,46,166,.1)); border: 1px solid rgba(255,255,255,.1); margin-bottom:25px; text-align:center; }
 .today-rate { display:inline-block; padding:12px 25px; border-radius:30px; background: linear-gradient(90deg, rgba(255,157,0,.2), rgba(255,230,0,.1)); border:1px solid rgba(255,190,0,.4); color:#ffe36e; font-weight:900; font-size: 18px; }
 .products-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:20px; }
-.product-card { padding:20px; border-radius:20px; background: rgba(10,15,32,.95); border:1px solid rgba(255,255,255,.08); transition:.35s; cursor:pointer; }
-.product-card:hover { transform:translateY(-8px); border-color:var(--pink); box-shadow: 0 20px 40px rgba(255,46,166,.2); }
-.product-icon { height:150px; border-radius:15px; margin-bottom:15px; overflow: hidden; }
-.product-icon img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-.product-card:hover .product-icon img { transform: scale(1.1); }
+.product-card { padding:20px; border-radius:20px; background: rgba(10,15,32,.95); border:1px solid rgba(255,255,255,.08); cursor:pointer; transition:.3s; }
+.product-card:hover { transform:translateY(-8px); border-color:var(--pink); }
+.product-icon { height:150px; border-radius:15px; margin-bottom:15px; overflow: hidden; background: linear-gradient(135deg, #1e293b, #be123c); }
+.product-icon img { width: 100%; height: 100%; object-fit: cover; }
 .product-card h3 { margin-bottom:10px; font-weight:900; font-size: 18px; }
 .product-card .specs { color:#8e99b8; font-size:13px; line-height:2; }
 .product-price { margin-top:15px; color:var(--green); font-weight:900; font-size: 16px; }
@@ -96,11 +88,10 @@ a { color:inherit; text-decoration:none; }
 /* FREE FIRE */
 .ff-intro { width:92%; max-width:1050px; margin:auto auto 35px; padding:30px; border-radius:25px; background: linear-gradient(135deg, rgba(255,46,166,.15), rgba(124,58,237,.15)); border: 1px solid rgba(255,46,166,.3); text-align:center; }
 .elite-grid { width:92%; max-width:1100px; margin:auto; display:grid; grid-template-columns: repeat(5,1fr); gap:18px; }
-.elite-card { border-radius:20px; overflow:hidden; background: #0a0e20; border: 1px solid rgba(255,255,255,.1); transition:.35s; cursor:pointer; }
-.elite-card:hover { transform: translateY(-10px); border-color:var(--pink); box-shadow: 0 20px 45px rgba(255,46,166,.25); }
-.elite-image { height:160px; overflow: hidden; }
-.elite-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-.elite-card:hover .elite-image img { transform: scale(1.15); }
+.elite-card { border-radius:20px; overflow:hidden; background: #0a0e20; border: 1px solid rgba(255,255,255,.1); cursor:pointer; transition:.3s; }
+.elite-card:hover { transform: translateY(-10px); border-color:var(--pink); }
+.elite-image { height:160px; overflow: hidden; background: linear-gradient(135deg, #3b0764, #9d174d, #7c2d12); display:flex; align-items:center; justify-content:center; font-size: 60px; color: #fff; }
+.elite-image img { width: 100%; height: 100%; object-fit: cover; }
 .elite-info { padding:15px; text-align:center; }
 .elite-info h3 { margin-bottom:8px; font-weight:900; }
 .elite-info p { color:#8e99b8; font-size:12px; margin-bottom: 5px; }
@@ -115,25 +106,23 @@ a { color:inherit; text-decoration:none; }
 /* SUPPORT */
 .support-box { width:92%; max-width:650px; margin:30px auto; padding:50px 35px; text-align:center; border-radius:30px; background: linear-gradient(145deg, rgba(6,78,59,.6), rgba(10,15,32,.95)); border: 1px solid rgba(0,245,160,.3); }
 .telegram-id { margin-top:25px; font-size:28px; color:#38bdf8; direction:ltr; font-weight:900; }
-.telegram-btn { display:inline-block; margin-top:30px; padding:16px 35px; border-radius:15px; background: linear-gradient(90deg, #0088cc, #2563eb); font-weight: 900; transition:.3s; }
-.telegram-btn:hover { transform:translateY(-5px); }
+.telegram-btn { display:inline-block; margin-top:30px; padding:16px 35px; border-radius:15px; background: linear-gradient(90deg, #0088cc, #2563eb); font-weight: 900; }
 
 /* MODAL */
 .modal { position:fixed; inset:0; z-index:2000; background: rgba(0,0,0,.8); backdrop-filter:blur(15px); display:flex; justify-content:center; align-items:center; padding:20px; }
 .modal-content { width:100%; max-width:750px; max-height:90vh; overflow-y:auto; padding:35px; border-radius:30px; background: linear-gradient(145deg, #11182e, #050812); border: 1px solid rgba(0,229,255,.4); }
-.modal-image { height:220px; border-radius:20px; margin-bottom:25px; overflow: hidden; }
+.modal-image { height:220px; border-radius:20px; margin-bottom:25px; overflow: hidden; background: linear-gradient(135deg, #1e293b, #7c3aed); display:flex; align-items:center; justify-content:center; font-size: 80px; }
 .modal-image img { width: 100%; height: 100%; object-fit: cover; }
 .modal h2 { font-size:30px; margin-bottom:20px; font-weight:900; color: var(--cyan); }
 .modal p { color:#aab4ce; line-height:2.2; margin-bottom:12px; font-size: 15px; }
 .modal strong { color: #fff; }
 .close-btn { width:100%; margin-top:30px; padding:15px; border:none; border-radius:15px; background:#1e293b; color:white; font-weight:900; font-size: 16px; cursor: pointer; }
-.close-btn:hover { background:#334155; }
 
 footer { text-align:center; padding:40px; color:#64708e; border-top: 1px solid rgba(255,255,255,.08); margin-top:80px; font-weight: 700; }
 
 @media(max-width:1100px){ .home-grid{grid-template-columns: repeat(2,1fr);} .category-grid{grid-template-columns: repeat(4,1fr);} .elite-grid{grid-template-columns: repeat(4,1fr);} }
 @media(max-width:900px){ .category-grid{grid-template-columns: repeat(3,1fr);} .elite-grid{grid-template-columns: repeat(3,1fr);} .products-grid{grid-template-columns: repeat(2,1fr);} }
-@media(max-width:700px){ .hero h1{font-size:38px;} .home-grid{grid-template-columns:1fr;} .category-grid{grid-template-columns: repeat(2,1fr);} .elite-grid{grid-template-columns: repeat(2,1fr);} .page-title h1{font-size:32px;} }
+@media(max-width:700px){ .hero h1{font-size:38px;} .home-grid{grid-template-columns:1fr;} .category-grid{grid-template-columns: repeat(2,1fr);} .elite-grid{grid-template-columns: repeat(2,1fr);} }
 @media(max-width:480px){ .category-grid{grid-template-columns:1fr;} .products-grid{grid-template-columns:1fr;} .elite-grid{grid-template-columns:1fr;} .hero h1{font-size:28px;} }
 </style>
 </head>
@@ -155,17 +144,17 @@ footer { text-align:center; padding:40px; color:#64708e; border-top: 1px solid r
 </section>
 
 <section id="successPage" class="hidden">
-    <div class="success-container"><div class="success-icon">✓</div><h1>ورود موفق کاربر محترم</h1><p>در حال ورود به پنل اصلی...</p></div>
+    <div class="success-container"><div class="success-icon">✓</div><h1>ورود موفق کاربر محترم</h1><p style="color:#9ba6c5;margin-top:15px;">در حال ورود به پنل اصلی...</p></div>
 </section>
 
 <section id="homePage" class="hidden">
 <header class="site-header"><div class="header-inner"><div class="logo">Welcome to Iran 🇮🇷</div><button class="header-btn" onclick="logout()">خروج</button></div></header>
 <div class="hero"><div class="hero-badge">⚡ GAMING • FREE FIRE • IRAN ⚡</div><h1>Welcome to Iran</h1><p>به پنل حرفه‌ای اطلاعات گیمینگ خوش آمدید</p></div>
 <div class="home-grid">
-    <div class="home-card" onclick="showPage('gamingPage')"><div class="card-image"><img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=600&q=80"></div><h2>Gaming</h2><p>بررسی قطعات کامپیوتر، مشخصات سخت‌افزار و نرخ بازار</p></div>
-    <div class="home-card" onclick="showPage('freefirePage')"><div class="card-image"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80"></div><h2>Free Fire</h2><p>آرشیو Elite Pass های قدیمی و اطلاعات هر فصل</p></div>
-    <div class="home-card" onclick="showPage('historyPage')"><div class="card-image"><img src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=600&q=80"></div><h2>تاریخچه فری فایر</h2><p>مسیر پیشرفت Free Fire از شروع تا امروز</p></div>
-    <div class="home-card" onclick="showPage('supportPage')"><div class="card-image"><img src="https://images.unsplash.com/photo-1553775282-20af80779df7?w=600&q=80"></div><h2>پشتیبانی</h2><p>ارتباط مستقیم با پشتیبانی سایت</p></div>
+    <div class="home-card" onclick="showPage('gamingPage')"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/samu6vip-svg/mysite@main/gpu.jpg" onerror="this.style.display='none'"></div><h2>Gaming</h2><p>بررسی قطعات کامپیوتر، مشخصات سخت‌افزار و نرخ بازار</p></div>
+    <div class="home-card" onclick="showPage('freefirePage')"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/samu6vip-svg/mysite@main/freefire.jpg" onerror="this.style.display='none'"></div><h2>Free Fire</h2><p>آرشیو Elite Pass های قدیمی و اطلاعات هر فصل</p></div>
+    <div class="home-card" onclick="showPage('historyPage')"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/samu6vip-svg/mysite@main/history.jpg" onerror="this.style.display='none'"></div><h2>تاریخچه فری فایر</h2><p>مسیر پیشرفت Free Fire از شروع تا امروز</p></div>
+    <div class="home-card" onclick="showPage('supportPage')"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/samu6vip-svg/mysite@main/support.jpg" onerror="this.style.display='none'"></div><h2>پشتیبانی</h2><p>ارتباط مستقیم با پشتیبانی سایت</p></div>
 </div>
 <footer>Welcome to Iran 🇮🇷 • ABS Gaming Panel • 1405</footer>
 </section>
@@ -184,7 +173,7 @@ footer { text-align:center; padding:40px; color:#64708e; border-top: 1px solid r
 <section id="freefirePage" class="page hidden">
 <header class="site-header"><div class="header-inner"><div class="logo">Welcome to Iran 🇮🇷</div><button class="header-btn" onclick="showPage('homePage')">← بازگشت</button></div></header>
 <div class="page-title"><h1>🔥 Free Fire Elite Pass</h1><p>آرشیو تاریخی Elite Pass های فری فایر</p></div>
-<div class="ff-intro"><h2>🏆 از Sakura تا آخرین Elite Pass</h2><p style="margin-top:12px;color:#9ba6c5;line-height:2;">Elite Pass از سال ۲۰۱۸ شروع شد و آخرین دوره آن در دسامبر ۲۰۲۲ منتشر شد. از ژانویه ۲۰۲۳ سیستم Booyah Pass جایگزین Elite Pass شد.</p></div>
+<div class="ff-intro"><h2>🏆 از Sakura تا آخرین Elite Pass</h2><p style="margin-top:12px;color:#9ba6c5;line-height:2;">Elite Pass از سال ۲۰۱۸ شروع شد و آخرین دوره آن در دسامبر ۲۰۲۲ منتشر شد.</p></div>
 <div id="eliteGrid" class="elite-grid"></div>
 <footer>Free Fire Archive • Welcome to Iran 🇮🇷</footer>
 </section>
@@ -193,8 +182,8 @@ footer { text-align:center; padding:40px; color:#64708e; border-top: 1px solid r
 <header class="site-header"><div class="header-inner"><div class="logo">Welcome to Iran 🇮🇷</div><button class="header-btn" onclick="showPage('homePage')">← بازگشت</button></div></header>
 <div class="page-title"><h1>📜 تاریخچه بازی</h1><p>مسیر Free Fire از آغاز تا امروز</p></div>
 <div class="timeline">
-    <div class="timeline-card"><div class="timeline-year">۲۰۱۷</div><p>Free Fire توسط Garena وارد بازار شد. تمرکز بازی روی Battle Royale سریع و اجرای مناسب روی گوشی‌ها بود.</p></div>
-    <div class="timeline-card"><div class="timeline-year">۲۰۱۸</div><p>سیستم Elite Pass معرفی شد. اولین Elite Pass با نام Kitsune / Sakura شناخته می‌شود.</p></div>
+    <div class="timeline-card"><div class="timeline-year">۲۰۱۷</div><p>Free Fire توسط Garena وارد بازار شد. تمرکز بازی روی Battle Royale سریع بود.</p></div>
+    <div class="timeline-card"><div class="timeline-year">۲۰۱۸</div><p>سیستم Elite Pass معرفی شد. اولین Elite Pass با نام Kitsune / Sakura بود.</p></div>
     <div class="timeline-card"><div class="timeline-year">۲۰۱۹</div><p>Elite Pass های متعدد، همکاری‌ها، سلاح‌ها و حالت‌های جدید اضافه شدند.</p></div>
     <div class="timeline-card"><div class="timeline-year">۲۰۲۰</div><p>بازی از نظر گیم‌پلی، رویدادها و حالت‌های رقابتی توسعه پیدا کرد.</p></div>
     <div class="timeline-card"><div class="timeline-year">۲۰۲۱</div><p>Free Fire MAX با گرافیک پیشرفته‌تر معرفی شد.</p></div>
@@ -222,24 +211,26 @@ footer { text-align:center; padding:40px; color:#64708e; border-top: 1px solid r
 </div>
 
 <script>
-// ====== LINKS عکس‌ها (همه اینترنتی - بدون نیاز به پوشه) ======
+const CDN = "https://cdn.jsdelivr.net/gh/samu6vip-svg/mysite@main/";
+
 const IMG = {
-    gpu: "gpu.jpg",
-    cpu: "cpu.jpg",
-    motherboard: "motherboard.jpg",
-    ram: "ram.jpg",
-    ssd: "ssd.jpg",
-    hdd: "hdd.jpg",
-    psu: "psu.jpg",
-    case: "case.jpg",
-    monitor: "monitor.jpg",
-    cooler: "cooler.jpg",
-    fan: "fan.jpg",
-    keyboard: "keyboard.jpg",
-    mouse: "mouse.jpg",
-    headset: "headset.jpg",
-    mousepad: "mousepad.jpg"
+    gpu: CDN + "gpu.jpg",
+    cpu: CDN + "cpu.jpg",
+    motherboard: CDN + "motherboard.jpg",
+    ram: CDN + "ram.jpg",
+    ssd: CDN + "ssd.jpg",
+    hdd: CDN + "hdd.jpg",
+    psu: CDN + "psu.jpg",
+    case: CDN + "case.jpg",
+    monitor: CDN + "monitor.jpg",
+    cooler: CDN + "cooler.jpg",
+    fan: CDN + "fan.jpg",
+    keyboard: CDN + "keyboard.jpg",
+    mouse: CDN + "mouse.jpg",
+    headset: CDN + "headset.jpg",
+    mousepad: CDN + "mousepad.jpg"
 };
+
 const products = {
     gpu: { title:"کارت گرافیک", items:[
         { name:"GT 710", specs:"کارت گرافیک اقتصادی برای کارهای سبک.", price:"۲۵,۰۰۰,۰۰۰ ریال" },
@@ -344,29 +335,28 @@ const products = {
 };
 
 const categories = [
-    { key:"gpu", name:"کارت گرافیک", en:"GPU" },
-    { key:"cpu", name:"CPU", en:"پردازنده" },
-    { key:"motherboard", name:"مادربورد", en:"Motherboard" },
-    { key:"ram", name:"RAM", en:"حافظه رم" },
-    { key:"ssd", name:"SSD", en:"حافظه پرسرعت" },
-    { key:"hdd", name:"HDD", en:"حافظه ذخیره" },
-    { key:"psu", name:"پاور", en:"Power Supply" },
-    { key:"case", name:"کیس", en:"Gaming Case" },
-    { key:"monitor", name:"مانیتور", en:"Gaming Monitor" },
-    { key:"cooler", name:"خنک‌کننده", en:"CPU Cooler" },
-    { key:"fan", name:"فن کیس", en:"Case Fans" },
-    { key:"keyboard", name:"کیبورد", en:"Gaming Keyboard" },
-    { key:"mouse", name:"ماوس", en:"Gaming Mouse" },
-    { key:"headset", name:"هدست", en:"Gaming Headset" },
-    { key:"mousepad", name:"موس‌پد", en:"Mouse Pad" }
+    { key:"gpu", name:"کارت گرافیک", en:"GPU", emoji:"🎮" },
+    { key:"cpu", name:"CPU", en:"پردازنده", emoji:"🧠" },
+    { key:"motherboard", name:"مادربورد", en:"Motherboard", emoji:"🧩" },
+    { key:"ram", name:"RAM", en:"حافظه رم", emoji:"💾" },
+    { key:"ssd", name:"SSD", en:"حافظه پرسرعت", emoji:"⚡" },
+    { key:"hdd", name:"HDD", en:"حافظه ذخیره", emoji:"💿" },
+    { key:"psu", name:"پاور", en:"Power Supply", emoji:"🔌" },
+    { key:"case", name:"کیس", en:"Gaming Case", emoji:"🖥️" },
+    { key:"monitor", name:"مانیتور", en:"Gaming Monitor", emoji:"🖵" },
+    { key:"cooler", name:"خنک‌کننده", en:"CPU Cooler", emoji:"❄️" },
+    { key:"fan", name:"فن کیس", en:"Case Fans", emoji:"🌀" },
+    { key:"keyboard", name:"کیبورد", en:"Gaming Keyboard", emoji:"⌨️" },
+    { key:"mouse", name:"ماوس", en:"Gaming Mouse", emoji:"🖱️" },
+    { key:"headset", name:"هدست", en:"Gaming Headset", emoji:"🎧" },
+    { key:"mousepad", name:"موس‌پد", en:"Mouse Pad", emoji:"🟩" }
 ];
 
-// ساخت کارت‌های دسته‌بندی
 const catGrid = document.getElementById("categoryGrid");
 categories.forEach(c => {
     const card = document.createElement("div");
     card.className = "category-card";
-    card.innerHTML = `<div class="category-photo"><img src="${IMG[c.key]}" alt="${c.name}"></div><h3>${c.name}</h3><p>${c.en}</p>`;
+    card.innerHTML = `<div class="category-photo"><img src="${IMG[c.key]}" onerror="this.parentElement.innerHTML='<div style=\\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:60px;\\'>${c.emoji}</div>'"></div><h3>${c.name}</h3><p>${c.en}</p>`;
     card.onclick = () => loadProducts(c.key);
     catGrid.appendChild(card);
 });
@@ -379,7 +369,7 @@ function loadProducts(key){
         const card = document.createElement("div");
         card.className = "product-card";
         card.innerHTML = `
-            <div class="product-icon"><img src="${IMG[key]}" alt="${item.name}"></div>
+            <div class="product-icon"><img src="${IMG[key]}" onerror="this.style.display='none'"></div>
             <h3>${item.name}</h3>
             <div class="specs">${item.specs}</div>
             <div class="product-price">${item.price}</div>
@@ -390,46 +380,51 @@ function loadProducts(key){
     document.querySelector(".product-area").scrollIntoView({ behavior:"smooth" });
 }
 
-// Elite Pass
+// Elite Pass - فقط اسم فایل، اگه عکس نبود ایموجی نشون میده
 const elitePasses = [
-    { s:1, n:"Kitsune / Sakura", d:"ژوئن ۲۰۱۸", img:"https://images.unsplash.com/photo-1522383225653-ed111181a951?w=600&q=80", desc:"اولین Elite Pass فری فایر با تم ژاپنی." },
-    { s:2, n:"Hip Hop", d:"ژوئیه ۲۰۱۸", img:"https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80", desc:"تم Hip Hop و استایل خیابانی." },
-    { s:3, n:"Doomsday Madness", d:"اوت ۲۰۱۸", img:"https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&q=80", desc:"تم آخرالزمانی." },
-    { s:4, n:"Royal Revelry", d:"سپتامبر ۲۰۱۸", img:"https://images.unsplash.com/photo-1533158307587-828f0a76ef46?w=600&q=80", desc:"تم سلطنتی." },
-    { s:5, n:"Pirates Legend", d:"اکتبر ۲۰۱۸", img:"https://images.unsplash.com/photo-1505636743951-31760b419d6e?w=600&q=80", desc:"تم دزدان دریایی." },
-    { s:6, n:"Arcade Mayhem", d:"نوامبر ۲۰۱۸", img:"https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=600&q=80", desc:"تم آرکید." },
-    { s:7, n:"Steampunk", d:"دسامبر ۲۰۱۸", img:"https://images.unsplash.com/photo-1532153955177-f59af40d6472?w=600&q=80", desc:"تم Steampunk." },
-    { s:8, n:"Impulsive Punk", d:"ژانویه ۲۰۱۹", img:"https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80", desc:"تم Punk." },
-    { s:9, n:"Bomb Squad", d:"فوریه ۲۰۱۹", img:"https://images.unsplash.com/photo-1580835238991-3e62d5b8448b?w=600&q=80", desc:"تم نظامی." },
-    { s:10, n:"Anubis Legends", d:"مارس ۲۰۱۹", img:"https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&q=80", desc:"تم مصر باستان." },
-    { s:11, n:"Dragon Slayers", d:"آوریل ۲۰۱۹", img:"https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80", desc:"تم اژدها." },
-    { s:12, n:"Wrath of Wild", d:"مه ۲۰۱۹", img:"https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=80", desc:"تم طبیعت." },
-    { s:13, n:"Rampage", d:"ژوئن ۲۰۱۹", img:"https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?w=600&q=80", desc:"تم Rampage." },
-    { s:14, n:"Primal Hunter", d:"ژوئیه ۲۰۱۹", img:"https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=80", desc:"تم شکارچی." },
-    { s:15, n:"Sandstorm", d:"اوت ۲۰۱۹", img:"https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&q=80", desc:"تم جنگجویان صحرا." },
-    { s:16, n:"Gunslinger", d:"سپتامبر ۲۰۱۹", img:"https://images.unsplash.com/photo-1533158307587-828f0a76ef46?w=600&q=80", desc:"تم غرب وحشی." },
-    { s:17, n:"Blood Demon", d:"اکتبر ۲۰۱۹", img:"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80", desc:"تم تاریک." },
-    { s:18, n:"Death Penalty", d:"نوامبر ۲۰۱۹", img:"https://images.unsplash.com/photo-1505636743951-31760b419d6e?w=600&q=80", desc:"تم مرگ." },
-    { s:19, n:"Ghost Pirates", d:"دسامبر ۲۰۱۹", img:"https://images.unsplash.com/photo-1505636743951-31760b419d6e?w=600&q=80", desc:"ترکیب Ghost و Pirate." },
-    { s:20, n:"Shadow Combat", d:"ژانویه ۲۰۲۰", img:"https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80", desc:"تم مبارزان سایه." },
-    { s:21, n:"T.R.A.P.", d:"۲۰۲۰", img:"https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80", desc:"تم موسیقی." },
-    { s:22, n:"Frenzy Survivors", d:"۲۰۲۰", img:"https://images.unsplash.com/photo-1580835238991-3e62d5b8448b?w=600&q=80", desc:"تم بازماندگان." },
-    { s:23, n:"Agents Z", d:"۲۰۲۰", img:"https://images.unsplash.com/photo-1527814050087-3793815479db?w=600&q=80", desc:"تم جاسوسی." },
-    { s:24, n:"Sombra del Credo", d:"۲۰۲۰", img:"https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80", desc:"تم تاریک." },
-    { s:25, n:"Mythical Foxes", d:"۲۰۲۰", img:"https://images.unsplash.com/photo-1522383225653-ed111181a951?w=600&q=80", desc:"تم روباه‌های افسانه‌ای." },
-    { s:55, n:"Avalanche Abyss", d:"دسامبر ۲۰۲۲", img:"https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=600&q=80", desc:"آخرین Elite Pass. پس از آن Booyah Pass جایگزین شد." }
+    { s:1, n:"Kitsune / Sakura", d:"ژوئن ۲۰۱۸", img:"sakura.jpg", emoji:"🌸", desc:"اولین Elite Pass فری فایر با تم ژاپنی." },
+    { s:2, n:"Hip Hop", d:"ژوئیه ۲۰۱۸", img:"hiphop.jpg", emoji:"🎤", desc:"تم Hip Hop و استایل خیابانی." },
+    { s:3, n:"Doomsday Madness", d:"اوت ۲۰۱۸", img:"doomsday.jpg", emoji:"☢️", desc:"تم آخرالزمانی." },
+    { s:4, n:"Royal Revelry", d:"سپتامبر ۲۰۱۸", img:"royal.jpg", emoji:"👑", desc:"تم سلطنتی." },
+    { s:5, n:"Pirates Legend", d:"اکتبر ۲۰۱۸", img:"pirate.jpg", emoji:"🏴‍☠️", desc:"تم دزدان دریایی." },
+    { s:6, n:"Arcade Mayhem", d:"نوامبر ۲۰۱۸", img:"arcade.jpg", emoji:"🕹️", desc:"تم آرکید." },
+    { s:7, n:"Steampunk", d:"دسامبر ۲۰۱۸", img:"steampunk.jpg", emoji:"⚙️", desc:"تم Steampunk." },
+    { s:8, n:"Impulsive Punk", d:"ژانویه ۲۰۱۹", img:"punk.jpg", emoji:"🎸", desc:"تم Punk." },
+    { s:9, n:"Bomb Squad", d:"فوریه ۲۰۱۹", img:"bomb.jpg", emoji:"💣", desc:"تم نظامی." },
+    { s:10, n:"Anubis Legends", d:"مارس ۲۰۱۹", img:"anubis.jpg", emoji:"🐺", desc:"تم مصر باستان." },
+    { s:11, n:"Dragon Slayers", d:"آوریل ۲۰۱۹", img:"dragon.jpg", emoji:"🐉", desc:"تم اژدها." },
+    { s:12, n:"Wrath of Wild", d:"مه ۲۰۱۹", img:"wild.jpg", emoji:"🌿", desc:"تم طبیعت." },
+    { s:13, n:"Rampage", d:"ژوئن ۲۰۱۹", img:"rampage.jpg", emoji:"🔥", desc:"تم Rampage." },
+    { s:14, n:"Primal Hunter", d:"ژوئیه ۲۰۱۹", img:"hunter.jpg", emoji:"🏹", desc:"تم شکارچی." },
+    { s:15, n:"Sandstorm", d:"اوت ۲۰۱۹", img:"sandstorm.jpg", emoji:"🏜️", desc:"تم جنگجویان صحرا." },
+    { s:16, n:"Gunslinger", d:"سپتامبر ۲۰۱۹", img:"gunslinger.jpg", emoji:"🤠", desc:"تم غرب وحشی." },
+    { s:17, n:"Blood Demon", d:"اکتبر ۲۰۱۹", img:"blood.jpg", emoji:"🩸", desc:"تم تاریک." },
+    { s:18, n:"Death Penalty", d:"نوامبر ۲۰۱۹", img:"death.jpg", emoji:"☠️", desc:"تم مرگ." },
+    { s:19, n:"Ghost Pirates", d:"دسامبر ۲۰۱۹", img:"ghost.jpg", emoji:"👻", desc:"ترکیب Ghost و Pirate." },
+    { s:20, n:"Shadow Combat", d:"ژانویه ۲۰۲۰", img:"shadow.jpg", emoji:"🥷", desc:"تم مبارزان سایه." },
+    { s:21, n:"T.R.A.P.", d:"۲۰۲۰", img:"trap.jpg", emoji:"🎵", desc:"تم موسیقی." },
+    { s:22, n:"Frenzy Survivors", d:"۲۰۲۰", img:"frenzy.jpg", emoji:"⚔️", desc:"تم بازماندگان." },
+    { s:23, n:"Agents Z", d:"۲۰۲۰", img:"agents.jpg", emoji:"🕵️", desc:"تم جاسوسی." },
+    { s:24, n:"Sombra del Credo", d:"۲۰۲۰", img:"sombra.jpg", emoji:"🗡️", desc:"تم تاریک." },
+    { s:25, n:"Mythical Foxes", d:"۲۰۲۰", img:"fox.jpg", emoji:"🦊", desc:"تم روباه‌های افسانه‌ای." },
+    { s:55, n:"Avalanche Abyss", d:"دسامبر ۲۰۲۲", img:"avalanche.jpg", emoji:"❄️", desc:"آخرین Elite Pass. پس از آن Booyah Pass جایگزین شد." }
 ];
 
 const eliteGrid = document.getElementById("eliteGrid");
 elitePasses.forEach(p => {
     const card = document.createElement("div");
     card.className = "elite-card";
-    card.innerHTML = `<div class="elite-image"><img src="${p.img}"></div><div class="elite-info"><h3>Elite ${p.s}</h3><p>${p.n}</p><p>${p.d}</p></div>`;
-    card.onclick = () => openModal(`Elite ${p.s} — ${p.n}`, p.img, `<p><strong>دوره:</strong> ${p.d}</p><p>${p.desc}</p>`);
+    const imgUrl = CDN + p.img;
+    card.innerHTML = `
+        <div class="elite-image">
+            <img src="${imgUrl}" onerror="this.parentElement.innerHTML='<div style=\\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:70px;background:linear-gradient(135deg,#3b0764,#9d174d,#7c2d12);\\'>${p.emoji}</div>'">
+        </div>
+        <div class="elite-info"><h3>Elite ${p.s}</h3><p>${p.n}</p><p>${p.d}</p></div>
+    `;
+    card.onclick = () => openModal(`Elite ${p.s} — ${p.n}`, imgUrl, `<p><strong>دوره:</strong> ${p.d}</p><p>${p.desc}</p>`);
     eliteGrid.appendChild(card);
 });
 
-// Login
 function login(){
     const u = document.getElementById("username").value.trim();
     const p = document.getElementById("password").value;
@@ -447,7 +442,6 @@ document.addEventListener("keydown", e => {
     if(e.key === "Enter" && !document.getElementById("loginPage").classList.contains("hidden")) login();
 });
 
-// Pages
 function showPage(page){
     ["homePage","gamingPage","freefirePage","historyPage","supportPage"].forEach(id => document.getElementById(id).classList.add("hidden"));
     document.getElementById(page).classList.remove("hidden");
@@ -455,10 +449,9 @@ function showPage(page){
 }
 function logout(){ location.reload(); }
 
-// Modal
 function openModal(title, img, body){
     document.getElementById("modalTitle").innerText = title;
-    document.getElementById("modalImage").innerHTML = `<img src="${img}">`;
+    document.getElementById("modalImage").innerHTML = `<img src="${img}" onerror="this.style.display='none'">`;
     document.getElementById("modalBody").innerHTML = body;
     document.getElementById("modal").classList.remove("hidden");
 }
