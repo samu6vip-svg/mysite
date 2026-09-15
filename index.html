@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to Iran | Gaming Panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family: 'Vazirmatn', Tahoma, sans-serif; background: radial-gradient(circle at 15% 20%,rgba(0,229,255,.15),transparent 25%), radial-gradient(circle at 85% 20%,rgba(255,0,128,.15),transparent 25%), radial-gradient(circle at 50% 90%,rgba(130,50,255,.15),transparent 30%), #050711; color:#fff; min-height:100vh; overflow-x:hidden; }
+:root { --cyan:#00e5ff; --blue:#287bff; --purple:#9b4dff; --pink:#ff2ea6; --green:#00f5a0; --shadow:0 15px 45px rgba(0,0,0,.5); }
+.hidden { display:none !important; }
+button { font-family:inherit; cursor:pointer; }
+a { color:inherit; text-decoration:none; }
+.background-orbs { position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:-1; }
+.orb { position:absolute; border-radius:50%; filter:blur(80px); opacity:.3; animation:floatOrb 12s infinite alternate ease-in-out; }
+.orb.one { width:300px; height:300px; background:var(--cyan); top:-5%; left:-5%; }
+.orb.two { width:350px; height:350px; background:var(--pink); right:-5%; top:30%; animation-delay:3s; }
+.orb.three { width:320px; height:320px; background:var(--purple); left:35%; bottom:-10%; animation-delay:6s; }
+@keyframes floatOrb { to{transform:translate(60px,-50px) scale(1.1);} }
+
+/* LOGIN */
+#loginPage { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px; }
+.login-box { width:100%; max-width:450px; padding:45px 35px; border-radius:30px; background: linear-gradient(145deg, rgba(17,25,50,.95), rgba(5,8,20,.98)); border:1px solid rgba(0,229,255,.4); box-shadow: 0 0 80px rgba(0,229,255,.15), var(--shadow); backdrop-filter:blur(25px); }
+.login-logo { width:90px; height:90px; margin:0 auto 25px; border-radius:25px; display:flex; align-items:center; justify-content:center; font-size:45px; background: linear-gradient(135deg, var(--cyan), var(--purple), var(--pink)); box-shadow: 0 0 40px rgba(0,229,255,.4); }
+.login-title { text-align:center; }
+.login-title h1 { font-size:32px; margin-bottom:10px; font-weight:900; background: linear-gradient(90deg, #fff, var(--cyan), var(--pink)); -webkit-background-clip:text; color:transparent; }
+.login-title p { color:#9ba6c5; margin-bottom:35px; }
+.input-box { margin-bottom:20px; }
+.input-box label { display:block; margin-bottom:8px; color:#d8dded; font-weight:700; font-size:14px; }
+.input-box input { width:100%; padding:16px; border-radius:15px; border:1px solid rgba(255,255,255,.1); background:#050814; color:white; outline:none; font-size:15px; font-family:inherit; }
+.input-box input:focus { border-color:var(--cyan); box-shadow: 0 0 25px rgba(0,229,255,.25); }
+.login-button { width:100%; border:none; padding:16px; border-radius:15px; color:white; font-size:17px; font-weight:900; background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink)); transition:.3s; }
+.login-button:hover { transform:translateY(-4px); }
+#error { min-height:25px; text-align:center; color:#ff526a; margin-top:15px; font-weight:700; }
+
+/* SUCCESS */
+#successPage { min-height:100vh; display:flex; align-items:center; justify-content:center; }
+.success-container { text-align:center; }
+.success-icon { width:130px; height:130px; margin:auto auto 30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:65px; border:4px solid var(--green); color:var(--green); box-shadow: 0 0 60px rgba(0,245,160,.5); }
+.success-container h1 { font-size:45px; font-weight:900; background: linear-gradient(90deg, var(--green), var(--cyan), var(--purple)); -webkit-background-clip:text; color:transparent; }
+.success-container p { color:#9ba6c5; margin-top:15px; }
+
+/* HEADER */
+.site-header { position:sticky; top:0; z-index:999; background: rgba(4,7,18,.85); border-bottom: 1px solid rgba(255,255,255,.08); backdrop-filter:blur(20px); }
+.header-inner { width:92%; max-width:1250px; margin:auto; min-height:75px; display:flex; justify-content:space-between; align-items:center; }
+.logo { font-size:22px; font-weight:900; background: linear-gradient(90deg, var(--cyan), var(--pink)); -webkit-background-clip:text; color:transparent; }
+.header-btn { border:1px solid rgba(255,255,255,.1); background:#0c1124; color:white; padding:10px 20px; border-radius:12px; font-weight:700; transition:.3s; }
+.header-btn:hover { border-color:var(--cyan); }
+
+/* HOME */
+.hero { text-align:center; padding:80px 20px 50px; }
+.hero-badge { display:inline-block; padding:10px 20px; border-radius:30px; background:rgba(0,229,255,.1); border:1px solid rgba(0,229,255,.3); color:var(--cyan); margin-bottom:25px; font-weight:700; }
+.hero h1 { font-size:55px; font-weight:900; margin-bottom:15px; background: linear-gradient(90deg, #fff, var(--cyan), var(--purple), var(--pink)); -webkit-background-clip:text; color:transparent; }
+.hero p { color:#9ba6c5; font-size:18px; }
+.home-grid { width:92%; max-width:1100px; margin:auto; display:grid; grid-template-columns: repeat(4,1fr); gap:25px; }
+.home-card { min-height:260px; padding:20px; border-radius:25px; background: linear-gradient(145deg, rgba(15,22,45,.95), rgba(5,8,20,.95)); border:1px solid rgba(255,255,255,.12); transition:.4s; box-shadow:var(--shadow); cursor:pointer; }
+.home-card:hover { transform: translateY(-15px) scale(1.03); border-color: rgba(0,229,255,.8); }
+.card-image { height:130px; border-radius:18px; margin-bottom:20px; overflow:hidden; }
+.card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.home-card:hover .card-image img { transform: scale(1.1); }
+.home-card h2 { margin-bottom:10px; font-weight:900; }
+.home-card p { color:#8e99b8; line-height:1.8; font-size:14px; }
+
+/* PAGE */
+.page { min-height:100vh; padding-bottom:80px; }
+.page-title { text-align:center; padding:60px 20px 40px; }
+.page-title h1 { font-size:45px; font-weight:900; margin-bottom:15px; background: linear-gradient(90deg, #fff, var(--cyan), var(--pink)); -webkit-background-clip:text; color:transparent; }
+.page-title p { color:#8e99b8; font-size:18px; }
+
+/* CATEGORY */
+.category-grid { width:92%; max-width:1100px; margin:auto; display:grid; grid-template-columns: repeat(5,1fr); gap:18px; }
+.category-card { padding:17px; border-radius:20px; background: rgba(10,15,32,.9); border: 1px solid rgba(255,255,255,.09); transition:.35s; text-align:center; cursor:pointer; }
+.category-card:hover { transform: translateY(-10px); border-color:var(--cyan); box-shadow: 0 20px 40px rgba(0,229,255,.15); }
+.category-photo { height:130px; border-radius:15px; margin-bottom:15px; overflow: hidden; }
+.category-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.category-card:hover .category-photo img { transform: scale(1.15); }
+.category-card h3 { margin-bottom:8px; font-size:16px; font-weight:900; }
+.category-card p { color:#7885a7; font-size:13px; }
+
+/* PRODUCTS */
+.product-area { width:92%; max-width:1100px; margin:50px auto 0; }
+.product-header { padding:25px; border-radius:22px; background: linear-gradient(90deg, rgba(0,229,255,.1), rgba(255,46,166,.1)); border: 1px solid rgba(255,255,255,.1); margin-bottom:25px; text-align:center; }
+.today-rate { display:inline-block; padding:12px 25px; border-radius:30px; background: linear-gradient(90deg, rgba(255,157,0,.2), rgba(255,230,0,.1)); border:1px solid rgba(255,190,0,.4); color:#ffe36e; font-weight:900; font-size: 18px; }
+.products-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:20px; }
+.product-card { padding:20px; border-radius:20px; background: rgba(10,15,32,.95); border:1px solid rgba(255,255,255,.08); transition:.35s; cursor:pointer; }
+.product-card:hover { transform:translateY(-8px); border-color:var(--pink); box-shadow: 0 20px 40px rgba(255,46,166,.2); }
+.product-icon { height:150px; border-radius:15px; margin-bottom:15px; overflow: hidden; }
+.product-icon img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.product-card:hover .product-icon img { transform: scale(1.1); }
+.product-card h3 { margin-bottom:10px; font-weight:900; font-size: 18px; }
+.product-card .specs { color:#8e99b8; font-size:13px; line-height:2; }
+.product-price { margin-top:15px; color:var(--green); font-weight:900; font-size: 16px; }
+
+/* FREE FIRE */
+.ff-intro { width:92%; max-width:1050px; margin:auto auto 35px; padding:30px; border-radius:25px; background: linear-gradient(135deg, rgba(255,46,166,.15), rgba(124,58,237,.15)); border: 1px solid rgba(255,46,166,.3); text-align:center; }
+.elite-grid { width:92%; max-width:1100px; margin:auto; display:grid; grid-template-columns: repeat(5,1fr); gap:18px; }
+.elite-card { border-radius:20px; overflow:hidden; background: #0a0e20; border: 1px solid rgba(255,255,255,.1); transition:.35s; cursor:pointer; }
+.elite-card:hover { transform: translateY(-10px); border-color:var(--pink); box-shadow: 0 20px 45px rgba(255,46,166,.25); }
+.elite-image { height:160px; overflow: hidden; }
+.elite-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.elite-card:hover .elite-image img { transform: scale(1.15); }
+.elite-info { padding:15px; text-align:center; }
+.elite-info h3 { margin-bottom:8px; font-weight:900; }
+.elite-info p { color:#8e99b8; font-size:12px; margin-bottom: 5px; }
+
+/* HISTORY */
+.timeline { width:92%; max-width:950px; margin:auto; }
+.timeline-card { padding:30px; margin-bottom:20px; border-radius:22px; background: rgba(10,15,32,.95); border-right: 5px solid var(--cyan); transition:.3s; }
+.timeline-card:hover { transform: translateX(-10px); border-right-color: var(--pink); }
+.timeline-year { color:var(--cyan); font-size:25px; font-weight:900; margin-bottom:12px; }
+.timeline-card p { color:#a6b0cb; line-height:2.2; font-size: 15px; }
+
+/* SUPPORT */
+.support-box { width:92%; max-width:650px; margin:30px auto; padding:50px 35px; text-align:center; border-radius:30px; background: linear-gradient(145deg, rgba(6,78,59,.6), rgba(10,15,32,.95)); border: 1px solid rgba(0,245,160,.3); }
+.telegram-id { margin-top:25px; font-size:28px; color:#38bdf8; direction:ltr; font-weight:900; }
+.telegram-btn { display:inline-block; margin-top:30px; padding:16px 35px; border-radius:15px; background: linear-gradient(90deg, #0088cc, #2563eb); font-weight: 900; transition:.3s; }
+.telegram-btn:hover { transform:translateY(-5px); }
+
+/* MODAL */
+.modal { position:fixed; inset:0; z-index:2000; background: rgba(0,0,0,.8); backdrop-filter:blur(15px); display:flex; justify-content:center; align-items:center; padding:20px; }
+.modal-content { width:100%; max-width:750px; max-height:90vh; overflow-y:auto; padding:35px; border-radius:30px; background: linear-gradient(145deg, #11182e, #050812); border: 1px solid rgba(0,229,255,.4); }
+.modal-image { height:220px; border-radius:20px; margin-bottom:25px; overflow: hidden; }
+.modal-image img { width: 100%; height: 100%; object-fit: cover; }
+.modal h2 { font-size:30px; margin-bottom:20px; font-weight:900; color: var(--cyan); }
+.modal p { color:#aab4ce; line-height:2.2; margin-bottom:12px; font-size: 15px; }
+.modal strong { color: #fff; }
+.close-btn { width:100%; margin-top:30px; padding:15px; border:none; border-radius:15px; background:#1e293b; color:white; font-weight:900; font-size: 16px; cursor: pointer; }
+.close-btn:hover { background:#334155; }
+
+footer { text-align:center; padding:40px; color:#64708e; border-top: 1px solid rgba(255,255,255,.08); margin-top:80px; font-weight: 700; }
+
+@media(max-width:1100px){ .home-grid{grid-template-columns: repeat(2,1fr);} .category-grid{grid-template-columns: repeat(4,1fr);} .elite-grid{grid-template-columns: repeat(4,1fr);} }
+@media(max-width:900px){ .category-grid{grid-template-columns: repeat(3,1fr);} .elite-grid{grid-template-columns: repeat(3,1fr);} .products-grid{grid-template-columns: repeat(2,1fr);} }
+@media(max-width:700px){ .hero h1{font-size:38px;} .home-grid{grid-template-columns:1fr;} .category-grid{grid-template-columns: repeat(2,1fr);} .elite-grid{grid-template-columns: repeat(2,1fr);} .page-title h1{font-size:32px;} }
+@media(max-width:480px){ .category-grid{grid-template-columns:1fr;} .products-grid{grid-template-columns:1fr;} .elite-grid{grid-template-columns:1fr;} .hero h1{font-size:28px;} }
+</style>
+</head>
+<body>
+
+<div class="background-orbs">
+    <div class="orb one"></div><div class="orb two"></div><div class="orb three"></div>
+</div>
+
+<section id="loginPage">
+    <div class="login-box">
+        <div class="login-logo">🇮🇷</div>
+        <div class="login-title"><h1>سلام ، خوش آمدید</h1><p>برای ورود به پنل اطلاعات خود را وارد کنید</p></div>
+        <div class="input-box"><label>👤 Username</label><input id="username" type="text" placeholder="نام کاربری"></div>
+        <div class="input-box"><label>🔐 Password</label><input id="password" type="password" placeholder="رمز عبور"></div>
+        <button class="login-button" onclick="login()">ورود به پنل ⚡</button>
+        <div id="error"></div>
+    </div>
+</section>
+
+<section id="successPage" class="hidden">
+    <div class="success-container"><div class="success-icon">✓</div><h1>ورود موفق کاربر محترم</h1><p>در حال ورود به پنل اصلی...</p></div>
+</section>
+
+<section id="homePage" class="hidden">
+<header class="site-header"><div class="header-inner"><div class="logo">Welcome to Iran 🇮🇷</div><button class="header-btn" onclick="logout()">خروج</button></div></header>
+<div class="hero"><div class="hero-badge">⚡ GAMING • FREE FIRE • IRAN ⚡</div><h1>Welcome to Iran</h1><p>به پنل حرفه‌ای اطلاعات گیمینگ خوش آمدید</p></div>
+<div class="home-grid">
+    <div class="home-card" onclick="showPage('gamingPage')"><div class="card-image"><img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=600&q=80"></div><h2>Gaming</h2><p>بررسی قطعات کامپیوتر، مشخصات سخت‌افزار و نرخ بازار</p></div>
+    <div class="home-card" onclick="showPage('freefirePage')"><div class="card-image"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80"></div><h2>Free Fire</h2><p>آرشیو Elite Pass های قدیمی و اطلاعات هر فصل</p></div>
+    <div class="home-card" onclick="showPage('historyPage')"><div class="card-image"><img src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=600&q=80"></div><h2>تاریخچه فری فایر</h2><p>مسیر پیشرفت Free Fire از شروع تا امروز</p></div>
+    <div class="home-card" onclick="showPage('supportPage')"><div class="card-image"><img src="https://images.unsplash.com/photo-1553775282-20af80779df7?w=600&q=80"></div><h2>پشتیبانی</h2><p>ارتباط مستقیم با پشتیبانی سایت</p></div>
+</div>
+<footer>Welcome to Iran 🇮🇷 • ABS Gaming Panel • 1405</footer>
+</section>
+
+<section id="gamingPage" class="page hidden">
+<header class="site-header"><div class="header-inner"><div class="logo">Welcome to Iran 🇮🇷</div><button class="header-btn" onclick="showPage('homePage')">← بازگشت</button></div></header>
+<div class="page-title"><h1>🖥️ Gaming Hardware</h1><p>دسته‌بندی کامل تجهیزات کامپیوتر</p></div>
+<div class="category-grid" id="categoryGrid"></div>
+<div class="product-area">
+    <div class="product-header"><div class="today-rate">💰 نرخ اجناس برای ۲۴ شهریور ۱۴۰۵ می‌باشد</div><p style="margin-top:15px;color:#8e99b8;">برای مشاهده قطعات، یکی از دسته‌بندی‌های بالا را انتخاب کنید.</p></div>
+    <div id="productsContainer" class="products-grid"></div>
+</div>
+<footer>Gaming Hardware • Welcome to Iran 🇮🇷</footer>
+</section>
+
+<section id="freefirePage" class="page hidden">
+<header class="site-header"><div class="header-inner"><div class="logo">Welcome to Iran 🇮🇷</div><button class="header-btn" onclick="showPage('homePage')">← بازگشت</button></div></header>
+<div class="page-title"><h1>🔥 Free Fire Elite Pass</h1><p>آرشیو تاریخی Elite Pass های فری فایر</p></div>
+<div class="ff-intro"><h2>🏆 از Sakura تا آخرین Elite Pass</h2><p style="margin-top:12px;color:#9ba6c5;line-height:2;">Elite Pass از سال ۲۰۱۸ شروع شد و آخرین دوره آن در دسامبر ۲۰۲۲ منتشر شد. از ژانویه ۲۰۲۳ سیستم Booyah Pass جایگزین Elite Pass شد.</p></div>
+<div id="eliteGrid" class="elite-grid"></div>
+<footer>Free Fire Archive • Welcome to Iran 🇮🇷</footer>
+</section>
+
+<section id="historyPage" class="page hidden">
+<header class="site-header"><div class="header-inner"><div class="logo">Welcome to Iran 🇮🇷</div><button class="header-btn" onclick="showPage('homePage')">← بازگشت</button></div></header>
+<div class="page-title"><h1>📜 تاریخچه بازی</h1><p>مسیر Free Fire از آغاز تا امروز</p></div>
+<div class="timeline">
+    <div class="timeline-card"><div class="timeline-year">۲۰۱۷</div><p>Free Fire توسط Garena وارد بازار شد. تمرکز بازی روی Battle Royale سریع و اجرای مناسب روی گوشی‌ها بود.</p></div>
+    <div class="timeline-card"><div class="timeline-year">۲۰۱۸</div><p>سیستم Elite Pass معرفی شد. اولین Elite Pass با نام Kitsune / Sakura شناخته می‌شود.</p></div>
+    <div class="timeline-card"><div class="timeline-year">۲۰۱۹</div><p>Elite Pass های متعدد، همکاری‌ها، سلاح‌ها و حالت‌های جدید اضافه شدند.</p></div>
+    <div class="timeline-card"><div class="timeline-year">۲۰۲۰</div><p>بازی از نظر گیم‌پلی، رویدادها و حالت‌های رقابتی توسعه پیدا کرد.</p></div>
+    <div class="timeline-card"><div class="timeline-year">۲۰۲۱</div><p>Free Fire MAX با گرافیک پیشرفته‌تر معرفی شد.</p></div>
+    <div class="timeline-card"><div class="timeline-year">۲۰۲۲</div><p>دسامبر ۲۰۲۲ آخرین Elite Pass منتشر شد.</p></div>
+    <div class="timeline-card"><div class="timeline-year">۲۰۲۳</div><p>از ژانویه ۲۰۲۳، Booyah Pass جایگزین Elite Pass شد.</p></div>
+    <div class="timeline-card"><div class="timeline-year">۲۰۲۴ تا ۲۰۲۶</div><p>Free Fire با آپدیت‌های دوره‌ای به توسعه خود ادامه داده است.</p></div>
+</div>
+<footer>Free Fire History • 2017 → 2026</footer>
+</section>
+
+<section id="supportPage" class="page hidden">
+<header class="site-header"><div class="header-inner"><div class="logo">Welcome to Iran 🇮🇷</div><button class="header-btn" onclick="showPage('homePage')">← بازگشت</button></div></header>
+<div class="page-title"><h1>🎧 ارتباط با پشتیبانی</h1><p>برای ارتباط مستقیم از تلگرام استفاده کنید.</p></div>
+<div class="support-box"><div style="font-size:75px;">💬</div><h2 style="margin-top:20px;">پشتیبانی ABS</h2><p style="margin-top:15px;color:#8e99b8;">آیدی تلگرام پشتیبانی:</p><div class="telegram-id">FAMYLI_OF_ABs</div><a class="telegram-btn" href="https://t.me/FAMYLI_OF_ABs" target="_blank">🚀 ارتباط در تلگرام</a></div>
+<footer>Support • Welcome to Iran 🇮🇷</footer>
+</section>
+
+<div id="modal" class="modal hidden" onclick="closeModal(event)">
+    <div class="modal-content">
+        <div id="modalImage" class="modal-image"></div>
+        <h2 id="modalTitle">عنوان</h2>
+        <div id="modalBody"></div>
+        <button class="close-btn" onclick="closeModal()">بستن</button>
+    </div>
+</div>
+
+<script>
+// ====== LINKS عکس‌ها (همه اینترنتی - بدون نیاز به پوشه) ======
+const IMG = {
+    gpu: "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=600&q=80",
+    cpu: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=600&q=80",
+    motherboard: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80",
+    ram: "https://images.unsplash.com/photo-1541029071515-84cc4e9b21c2?w=600&q=80",
+    ssd: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=600&q=80",
+    hdd: "https://images.unsplash.com/photo-1531492746076-161ca9bcad58?w=600&q=80",
+    psu: "https://images.unsplash.com/photo-1587202372616-b43abea06c2a?w=600&q=80",
+    case: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=600&q=80",
+    monitor: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&q=80",
+    cooler: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=600&q=80",
+    fan: "https://images.unsplash.com/photo-1587202372616-b43abea06c2a?w=600&q=80",
+    keyboard: "https://images.unsplash.com/photo-1595225476474-87563907a212?w=600&q=80",
+    mouse: "https://images.unsplash.com/photo-1527814050087-3793815479db?w=600&q=80",
+    headset: "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=600&q=80",
+    mousepad: "https://images.unsplash.com/photo-1616422285623-13ff0162193c?w=600&q=80"
+};
+
+const products = {
+    gpu: { title:"کارت گرافیک", items:[
+        { name:"GT 710", specs:"کارت گرافیک اقتصادی برای کارهای سبک.", price:"۲۵,۰۰۰,۰۰۰ ریال" },
+        { name:"GTX 1050 Ti", specs:"مناسب بازی‌های سبک و eSports.", price:"۴۵,۰۰۰,۰۰۰ ریال" },
+        { name:"GTX 1650", specs:"محبوب برای گیمینگ سبک.", price:"۶۵,۰۰۰,۰۰۰ ریال" },
+        { name:"GTX 1660 Super", specs:"مناسب گیمینگ 1080p.", price:"۸۵,۰۰۰,۰۰۰ ریال" },
+        { name:"RTX 2060 Super", specs:"پشتیبانی Ray Tracing و DLSS.", price:"۱۲۰,۰۰۰,۰۰۰ ریال" },
+        { name:"RTX 3060", specs:"مناسب گیمینگ 1080p و 1440p.", price:"۱۶۵,۰۰۰,۰۰۰ ریال" },
+        { name:"RTX 4060", specs:"نسل جدید با DLSS 3.", price:"۲۳۵,۰۰۰,۰۰۰ ریال" },
+        { name:"RTX 4070", specs:"مناسب گیمینگ 1440p قدرتمند.", price:"۳۸۰,۰۰۰,۰۰۰ ریال" },
+        { name:"RTX 4080", specs:"High-End برای 4K.", price:"۵۸۰,۰۰۰,۰۰۰ ریال" },
+        { name:"RTX 4090", specs:"قدرتمندترین کارت گرافیک.", price:"۹۵۰,۰۰۰,۰۰۰ ریال" }
+    ]},
+    cpu: { title:"پردازنده", items:[
+        { name:"Core i3", specs:"پردازنده اقتصادی.", price:"۳۵,۰۰۰,۰۰۰ ریال" },
+        { name:"Core i5", specs:"مناسب گیمینگ میان‌رده.", price:"۷۵,۰۰۰,۰۰۰ ریال" },
+        { name:"Core i7", specs:"قدرتمند برای گیمینگ و ادیت.", price:"۱۴۵,۰۰۰,۰۰۰ ریال" },
+        { name:"Core i9", specs:"رده حرفه‌ای Intel.", price:"۲۹۰,۰۰۰,۰۰۰ ریال" },
+        { name:"Ryzen 5", specs:"محبوب AMD میان‌رده.", price:"۸۵,۰۰۰,۰۰۰ ریال" },
+        { name:"Ryzen 7", specs:"قدرتمند AMD.", price:"۱۶۵,۰۰۰,۰۰۰ ریال" },
+        { name:"Ryzen 9", specs:"حرفه‌ای AMD.", price:"۳۱۰,۰۰۰,۰۰۰ ریال" }
+    ]},
+    motherboard: { title:"مادربورد", items:[
+        { name:"H Series", specs:"اقتصادی برای سیستم پایه.", price:"۴۵,۰۰۰,۰۰۰ ریال" },
+        { name:"B Series", specs:"مناسب گیمینگ میان‌رده.", price:"۸۵,۰۰۰,۰۰۰ ریال" },
+        { name:"Z Series", specs:"پیشرفته Intel.", price:"۱۸۵,۰۰۰,۰۰۰ ریال" },
+        { name:"X Series", specs:"حرفه‌ای AMD.", price:"۲۴۰,۰۰۰,۰۰۰ ریال" }
+    ]},
+    ram: { title:"رم", items:[
+        { name:"DDR3 8GB", specs:"نسل قدیمی.", price:"۱۸,۰۰۰,۰۰۰ ریال" },
+        { name:"DDR4 8GB", specs:"اقتصادی روزمره.", price:"۲۵,۰۰۰,۰۰۰ ریال" },
+        { name:"DDR4 16GB", specs:"مناسب اکثر سیستم‌ها.", price:"۴۵,۰۰۰,۰۰۰ ریال" },
+        { name:"DDR4 32GB", specs:"گیمینگ سنگین.", price:"۸۵,۰۰۰,۰۰۰ ریال" },
+        { name:"DDR5 16GB", specs:"نسل جدید.", price:"۶۵,۰۰۰,۰۰۰ ریال" },
+        { name:"DDR5 32GB", specs:"بالا رده.", price:"۱۲۸,۰۰۰,۰۰۰ ریال" }
+    ]},
+    ssd: { title:"SSD", items:[
+        { name:"SATA 256GB", specs:"ارتقای سیستم اقتصادی.", price:"۱۸,۰۰۰,۰۰۰ ریال" },
+        { name:"SATA 512GB", specs:"مناسب ویندوز و برنامه.", price:"۳۲,۰۰۰,۰۰۰ ریال" },
+        { name:"SATA 1TB", specs:"ظرفیت بالا.", price:"۵۵,۰۰۰,۰۰۰ ریال" },
+        { name:"NVMe 500GB", specs:"سرعت بالا.", price:"۳۵,۰۰۰,۰۰۰ ریال" },
+        { name:"NVMe 1TB", specs:"گیمینگ مدرن.", price:"۶۵,۰۰۰,۰۰۰ ریال" },
+        { name:"NVMe 2TB", specs:"ظرفیت بزرگ.", price:"۵۵,۰۰۰,۰۰۰ ریال" }
+    ]},
+    hdd: { title:"هارد", items:[
+        { name:"HDD 1TB", specs:"ذخیره‌سازی پایه.", price:"۱۵,۰۰۰,۰۰۰ ریال" },
+        { name:"HDD 2TB", specs:"بازی و فیلم.", price:"۲۵,۰۰۰,۰۰۰ ریال" },
+        { name:"HDD 4TB", specs:"آرشیو متوسط.", price:"۴۵,۰۰۰,۰۰۰ ریال" },
+        { name:"HDD 8TB", specs:"آرشیو حجیم.", price:"۸۵,۰۰۰,۰۰۰ ریال" }
+    ]},
+    psu: { title:"پاور", items:[
+        { name:"450W", specs:"سیستم اقتصادی.", price:"۱۲,۰۰۰,۰۰۰ ریال" },
+        { name:"550W", specs:"گیمینگ اقتصادی.", price:"۱۸,۰۰۰,۰۰۰ ریال" },
+        { name:"650W", specs:"گیمینگ قدرتمند.", price:"۲۵,۰۰۰,۰۰۰ ریال" },
+        { name:"750W", specs:"کارت‌های رده بالا.", price:"۳۲,۰۰۰,۰۰۰ ریال" },
+        { name:"850W", specs:"High-End.", price:"۲۵,۶۰۰,۰۰۰ ریال" }
+    ]},
+    case: { title:"کیس", items:[
+        { name:"اقتصادی", specs:"مناسب سیستم پایه.", price:"۲۰,۰۰۰,۰۰۰ ریال" },
+        { name:"Mid Tower", specs:"استاندارد و پرکاربرد.", price:"۳۵,۰۰۰,۰۰۰ ریال" },
+        { name:"Airflow", specs:"جریان هوای بهتر.", price:"۴۵,۰۰۰,۰۰۰ ریال" },
+        { name:"Full Tower", specs:"حرفه‌ای و بزرگ.", price:"۶۵,۰۰۰,۰۰۰ ریال" }
+    ]},
+    monitor: { title:"مانیتور", items:[
+        { name:"1080p 60Hz", specs:"پایه روزمره.", price:"۳۵,۰۰۰,۰۰۰ ریال" },
+        { name:"1080p 144Hz", specs:"محبوب گیمرها.", price:"۶۵,۰۰۰,۰۰۰ ریال" },
+        { name:"1080p 240Hz", specs:"رقابتی.", price:"۹۵,۰۰۰,۰۰۰ ریال" },
+        { name:"1440p 165Hz", specs:"کیفیت و روانی.", price:"۱۴۵,۰۰۰,۰۰۰ ریال" },
+        { name:"4K 144Hz", specs:"حرفه‌ای.", price:"۲۵۰,۰۰۰,۰۰۰ ریال" }
+    ]},
+    cooler: { title:"خنک‌کننده", items:[
+        { name:"Air Cooler", specs:"پردازنده کم‌مصرف.", price:"۱۲,۰۰۰,۰۰۰ ریال" },
+        { name:"Tower Air", specs:"دفع حرارت بالا.", price:"۲۵,۰۰۰,۰۰۰ ریال" },
+        { name:"AIO 240mm", specs:"مایع میان‌رده.", price:"۴۵,۰۰۰,۰۰۰ ریال" },
+        { name:"AIO 360mm", specs:"مایع حرفه‌ای.", price:"۷۵,۰۰۰,۰۰۰ ریال" }
+    ]},
+    fan: { title:"فن کیس", items:[
+        { name:"Fan 120mm", specs:"فن استاندارد.", price:"۵,۰۰۰,۰۰۰ ریال" },
+        { name:"ARGB 120mm", specs:"نورپردازی حرفه‌ای.", price:"۸,۰۰۰,۰۰۰ ریال" },
+        { name:"Fan 140mm", specs:"جریان هوای قوی.", price:"۷,۰۰۰,۰۰۰ ریال" }
+    ]},
+    keyboard: { title:"کیبورد", items:[
+        { name:"Membrane", specs:"اقتصادی روزمره.", price:"۱۵,۰۰۰,۰۰۰ ریال" },
+        { name:"Mechanical", specs:"مناسب تایپ و گیمینگ.", price:"۳۵,۰۰۰,۰۰۰ ریال" },
+        { name:"RGB Mechanical", specs:"با نورپردازی RGB.", price:"۵۵,۰۰۰,۰۰۰ ریال" }
+    ]},
+    mouse: { title:"ماوس", items:[
+        { name:"Gaming اقتصادی", specs:"استفاده روزمره.", price:"۱۲,۰۰۰,۰۰۰ ریال" },
+        { name:"8000 DPI", specs:"بازی‌های رقابتی.", price:"۲۵,۰۰۰,۰۰۰ ریال" },
+        { name:"16000 DPI", specs:"حرفه‌ای.", price:"۴۵,۰۰۰,۰۰۰ ریال" }
+    ]},
+    headset: { title:"هدست", items:[
+        { name:"Stereo", specs:"اقتصادی.", price:"۱۸,۰۰۰,۰۰۰ ریال" },
+        { name:"7.1 Surround", specs:"صدای چندکاناله.", price:"۳۵,۰۰۰,۰۰۰ ریال" },
+        { name:"Wireless", specs:"بی‌سیم.", price:"۵۵,۰۰۰,۰۰۰ ریال" }
+    ]},
+    mousepad: { title:"موس‌پد", items:[
+        { name:"Small", specs:"معمولی.", price:"۵,۰۰۰,۰۰۰ ریال" },
+        { name:"Large", specs:"برای کیبورد و ماوس.", price:"۸,۰۰۰,۰۰۰ ریال" },
+        { name:"Desk Mat XL", specs:"پوشش کل میز.", price:"۱۲,۰۰۰,۰۰۰ ریال" }
+    ]}
+};
+
+const categories = [
+    { key:"gpu", name:"کارت گرافیک", en:"GPU" },
+    { key:"cpu", name:"CPU", en:"پردازنده" },
+    { key:"motherboard", name:"مادربورد", en:"Motherboard" },
+    { key:"ram", name:"RAM", en:"حافظه رم" },
+    { key:"ssd", name:"SSD", en:"حافظه پرسرعت" },
+    { key:"hdd", name:"HDD", en:"حافظه ذخیره" },
+    { key:"psu", name:"پاور", en:"Power Supply" },
+    { key:"case", name:"کیس", en:"Gaming Case" },
+    { key:"monitor", name:"مانیتور", en:"Gaming Monitor" },
+    { key:"cooler", name:"خنک‌کننده", en:"CPU Cooler" },
+    { key:"fan", name:"فن کیس", en:"Case Fans" },
+    { key:"keyboard", name:"کیبورد", en:"Gaming Keyboard" },
+    { key:"mouse", name:"ماوس", en:"Gaming Mouse" },
+    { key:"headset", name:"هدست", en:"Gaming Headset" },
+    { key:"mousepad", name:"موس‌پد", en:"Mouse Pad" }
+];
+
+// ساخت کارت‌های دسته‌بندی
+const catGrid = document.getElementById("categoryGrid");
+categories.forEach(c => {
+    const card = document.createElement("div");
+    card.className = "category-card";
+    card.innerHTML = `<div class="category-photo"><img src="${IMG[c.key]}" alt="${c.name}"></div><h3>${c.name}</h3><p>${c.en}</p>`;
+    card.onclick = () => loadProducts(c.key);
+    catGrid.appendChild(card);
+});
+
+function loadProducts(key){
+    const data = products[key];
+    const container = document.getElementById("productsContainer");
+    container.innerHTML = "";
+    data.items.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.innerHTML = `
+            <div class="product-icon"><img src="${IMG[key]}" alt="${item.name}"></div>
+            <h3>${item.name}</h3>
+            <div class="specs">${item.specs}</div>
+            <div class="product-price">${item.price}</div>
+        `;
+        card.onclick = () => openModal(item.name, IMG[key], `<p><strong>دسته:</strong> ${data.title}</p><p>${item.specs}</p><p><strong>قیمت:</strong> ${item.price}</p><p>نرخ مربوط به ۲۴ شهریور ۱۴۰۵</p>`);
+        container.appendChild(card);
+    });
+    document.querySelector(".product-area").scrollIntoView({ behavior:"smooth" });
+}
+
+// Elite Pass
+const elitePasses = [
+    { s:1, n:"Kitsune / Sakura", d:"ژوئن ۲۰۱۸", img:"https://images.unsplash.com/photo-1522383225653-ed111181a951?w=600&q=80", desc:"اولین Elite Pass فری فایر با تم ژاپنی." },
+    { s:2, n:"Hip Hop", d:"ژوئیه ۲۰۱۸", img:"https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80", desc:"تم Hip Hop و استایل خیابانی." },
+    { s:3, n:"Doomsday Madness", d:"اوت ۲۰۱۸", img:"https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&q=80", desc:"تم آخرالزمانی." },
+    { s:4, n:"Royal Revelry", d:"سپتامبر ۲۰۱۸", img:"https://images.unsplash.com/photo-1533158307587-828f0a76ef46?w=600&q=80", desc:"تم سلطنتی." },
+    { s:5, n:"Pirates Legend", d:"اکتبر ۲۰۱۸", img:"https://images.unsplash.com/photo-1505636743951-31760b419d6e?w=600&q=80", desc:"تم دزدان دریایی." },
+    { s:6, n:"Arcade Mayhem", d:"نوامبر ۲۰۱۸", img:"https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=600&q=80", desc:"تم آرکید." },
+    { s:7, n:"Steampunk", d:"دسامبر ۲۰۱۸", img:"https://images.unsplash.com/photo-1532153955177-f59af40d6472?w=600&q=80", desc:"تم Steampunk." },
+    { s:8, n:"Impulsive Punk", d:"ژانویه ۲۰۱۹", img:"https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80", desc:"تم Punk." },
+    { s:9, n:"Bomb Squad", d:"فوریه ۲۰۱۹", img:"https://images.unsplash.com/photo-1580835238991-3e62d5b8448b?w=600&q=80", desc:"تم نظامی." },
+    { s:10, n:"Anubis Legends", d:"مارس ۲۰۱۹", img:"https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&q=80", desc:"تم مصر باستان." },
+    { s:11, n:"Dragon Slayers", d:"آوریل ۲۰۱۹", img:"https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80", desc:"تم اژدها." },
+    { s:12, n:"Wrath of Wild", d:"مه ۲۰۱۹", img:"https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=80", desc:"تم طبیعت." },
+    { s:13, n:"Rampage", d:"ژوئن ۲۰۱۹", img:"https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?w=600&q=80", desc:"تم Rampage." },
+    { s:14, n:"Primal Hunter", d:"ژوئیه ۲۰۱۹", img:"https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=80", desc:"تم شکارچی." },
+    { s:15, n:"Sandstorm", d:"اوت ۲۰۱۹", img:"https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&q=80", desc:"تم جنگجویان صحرا." },
+    { s:16, n:"Gunslinger", d:"سپتامبر ۲۰۱۹", img:"https://images.unsplash.com/photo-1533158307587-828f0a76ef46?w=600&q=80", desc:"تم غرب وحشی." },
+    { s:17, n:"Blood Demon", d:"اکتبر ۲۰۱۹", img:"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80", desc:"تم تاریک." },
+    { s:18, n:"Death Penalty", d:"نوامبر ۲۰۱۹", img:"https://images.unsplash.com/photo-1505636743951-31760b419d6e?w=600&q=80", desc:"تم مرگ." },
+    { s:19, n:"Ghost Pirates", d:"دسامبر ۲۰۱۹", img:"https://images.unsplash.com/photo-1505636743951-31760b419d6e?w=600&q=80", desc:"ترکیب Ghost و Pirate." },
+    { s:20, n:"Shadow Combat", d:"ژانویه ۲۰۲۰", img:"https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80", desc:"تم مبارزان سایه." },
+    { s:21, n:"T.R.A.P.", d:"۲۰۲۰", img:"https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80", desc:"تم موسیقی." },
+    { s:22, n:"Frenzy Survivors", d:"۲۰۲۰", img:"https://images.unsplash.com/photo-1580835238991-3e62d5b8448b?w=600&q=80", desc:"تم بازماندگان." },
+    { s:23, n:"Agents Z", d:"۲۰۲۰", img:"https://images.unsplash.com/photo-1527814050087-3793815479db?w=600&q=80", desc:"تم جاسوسی." },
+    { s:24, n:"Sombra del Credo", d:"۲۰۲۰", img:"https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80", desc:"تم تاریک." },
+    { s:25, n:"Mythical Foxes", d:"۲۰۲۰", img:"https://images.unsplash.com/photo-1522383225653-ed111181a951?w=600&q=80", desc:"تم روباه‌های افسانه‌ای." },
+    { s:55, n:"Avalanche Abyss", d:"دسامبر ۲۰۲۲", img:"https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=600&q=80", desc:"آخرین Elite Pass. پس از آن Booyah Pass جایگزین شد." }
+];
+
+const eliteGrid = document.getElementById("eliteGrid");
+elitePasses.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "elite-card";
+    card.innerHTML = `<div class="elite-image"><img src="${p.img}"></div><div class="elite-info"><h3>Elite ${p.s}</h3><p>${p.n}</p><p>${p.d}</p></div>`;
+    card.onclick = () => openModal(`Elite ${p.s} — ${p.n}`, p.img, `<p><strong>دوره:</strong> ${p.d}</p><p>${p.desc}</p>`);
+    eliteGrid.appendChild(card);
+});
+
+// Login
+function login(){
+    const u = document.getElementById("username").value.trim();
+    const p = document.getElementById("password").value;
+    const e = document.getElementById("error");
+    if(u === "abs" && p === "1"){
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("successPage").classList.remove("hidden");
+        setTimeout(() => {
+            document.getElementById("successPage").classList.add("hidden");
+            document.getElementById("homePage").classList.remove("hidden");
+        }, 2000);
+    } else { e.innerText = "❌ نام کاربری یا رمز عبور اشتباه است."; }
+}
+document.addEventListener("keydown", e => {
+    if(e.key === "Enter" && !document.getElementById("loginPage").classList.contains("hidden")) login();
+});
+
+// Pages
+function showPage(page){
+    ["homePage","gamingPage","freefirePage","historyPage","supportPage"].forEach(id => document.getElementById(id).classList.add("hidden"));
+    document.getElementById(page).classList.remove("hidden");
+    window.scrollTo({ top:0, behavior:"smooth" });
+}
+function logout(){ location.reload(); }
+
+// Modal
+function openModal(title, img, body){
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalImage").innerHTML = `<img src="${img}">`;
+    document.getElementById("modalBody").innerHTML = body;
+    document.getElementById("modal").classList.remove("hidden");
+}
+function closeModal(event){
+    if(event && event.target !== document.getElementById("modal")) return;
+    document.getElementById("modal").classList.add("hidden");
+}
+document.addEventListener("keydown", e => { if(e.key === "Escape") document.getElementById("modal").classList.add("hidden"); });
+</script>
+
+</body>
+</html>
